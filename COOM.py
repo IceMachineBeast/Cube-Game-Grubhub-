@@ -1,3 +1,1 @@
-
-
-print("It's mine now!")
+print("HENLO")
