@@ -4,6 +4,7 @@ screen = pygame.display.set_mode(800, 600)
 pygame.display.set_caption('Grubhub Offical Game')
 white = (255,255,255)
 
+print("Umgak")
 screen.fill(white)
 pygame.display.flip()
 running = True
