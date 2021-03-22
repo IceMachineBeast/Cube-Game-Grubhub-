@@ -6,7 +6,7 @@ white = (255,255,255)
 
 print("I am le tarde and I can't program - Konrád") # Not true
 print("Umgak")
-screen.fill(white)
+screen.fill((255,0,0))
 pygame.display.flip()
 running = True
 while running:
