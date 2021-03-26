@@ -21,16 +21,23 @@ def logic():
             x.vely += 1
 
     # Check collision for player.
-    if abs(ground.rect.top - player.rect.bottom) < 5:
+    if ground.rect.top < player.rect.bottom:
         player.vely = 0
+        player.rect.bottom = ground.rect.top
+    if player.rect.left < 0:
+        player.velx = 0
+        player.rect.left = 0
+    if player.rect.right > 1200:
+        player.velx = 0
+        player.rect.right = 1200
 
     # Getting user input.
     keys = pygame.key.get_pressed()
 
     # Using user inputs.
-    if keys[pygame.K_LEFT] and player.velx > -15:
+    if keys[pygame.K_LEFT] and player.velx > -15 and player.rect.left > 0:
         player.velx -= 2
-    if keys[pygame.K_RIGHT] and player.velx < 15:
+    if keys[pygame.K_RIGHT] and player.velx < 15 and player.rect.right < 1200:
         player.velx += 2
     if keys[pygame.K_UP] and abs(ground.rect.top - player.rect.bottom) < 5:
         player.vely -= 20
@@ -60,7 +67,7 @@ grounds = pygame.sprite.Group()
 ###     Player     ###
 player = Entity((255, 0, 0), 50, 50)
 player.rect.x = 200
-player.rect.y = 600
+player.rect.y = 200
 sprites.add(player)
 
 ###     Ground     ###
