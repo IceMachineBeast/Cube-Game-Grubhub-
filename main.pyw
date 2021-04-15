@@ -3,6 +3,7 @@
 ###############################
 import pygame
 from entity import Entity
+from turret import Turret
 
 #########################################
 #####       Utility Functions       #####
@@ -14,6 +15,7 @@ def logic():
 
     # Update all sprites.
     sprites.update()
+    turret.update(player.rect.x, player.rect.y)
 
     # Apply gravity to those sprites that need it.
     for x in sprites:
@@ -77,6 +79,9 @@ ground.rect.y = 800
 ground.gravity = False
 sprites.add(ground)
 grounds.add(ground)
+
+###     Turret      ###
+turret = Turret(screen, 600, 200)
 
 #######################################
 #####       Initialization       ######
